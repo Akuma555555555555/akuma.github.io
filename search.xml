@@ -4,7 +4,49 @@
   
     
     <entry>
-      <title>笔记-机器人运动学-chp2</title>
+      <title>玩玩服务器</title>
+      <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/"/>
+      <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p><strong>前端时间因为朋友要我帮忙写一个网页能够远程访问树莓派摄像头实现图传功能，刚开始用python的socket库试了试，延迟太高，帧率太低。后来又问了问学长，得知了一种rtmp的流媒体传输协议，于是就尝试自己打一个rtmp服务器，大一的时候搞网页就一直玩得不是很明白，不过最后终于实现了，但是由于用的服务器宽带只有1M，延迟还是太高。再后来在github上找到了一个用flask框架写的网页ip访问树莓派摄像头的给搞定了。虽然最后不用服务器知识，不过这个过程中自己也学会玩服务器了，算是开启了我的“服务器之旅”吧。</strong></p><h1 id="ssh远程连接"><a href="#ssh远程连接" class="headerlink" title="ssh远程连接"></a>ssh远程连接</h1><p>要进行SSH远程连接，你需要确保你的目标主机开启了SSH服务。<br>通常情况下，你如果想要进行SSH远程连接服务器，那你需要知道服务器的可ping通的ip地址和开启ssh服务的端口号。<br>你可以使用类似于以下命令的语法进行连接：</p><blockquote><p>ssh -p port_number username@hostname</p></blockquote><p>例如如果服务器ip地址是192.168.1.1，端口号是22，用户名是root，那么命令就是：</p><blockquote><p>ssh -p 22 root@192.168.1.1</p></blockquote><h2 id="ubuntu-安装ssh"><a href="#ubuntu-安装ssh" class="headerlink" title="ubuntu 安装ssh"></a>ubuntu 安装ssh</h2><p><strong>这里使用的是openssh，一般来说ubuntu自带客户端，这里只需要安装服务端</strong></p><blockquote><p>sudo apt-get install openssh-server<br>查看系统是否已经安装ssh客户端或者服务端：dpkg -l | grep ssh<br>启动ssh服务：sudo /etc/init.d/ssh start<br>关闭ssh服务：sudo /etc/init.d/ssh stop<br>重启ssh服务：sudo /etc/init.d/ssh restart</p></blockquote><h1 id="VNC图形化连接"><a href="#VNC图形化连接" class="headerlink" title="VNC图形化连接"></a>VNC图形化连接</h1><p>VNC是远程桌面协议，可以远程连接服务器，但是需要安装客户端。</p><h1 id="ubuntu设置自启动wifi热点"><a href="#ubuntu设置自启动wifi热点" class="headerlink" title="ubuntu设置自启动wifi热点"></a>ubuntu设置自启动wifi热点</h1><p><strong>这一部分还是万能的chatgpt帮我写的，这里还是记录一下吧</strong></p><ul><li>打开终端</li><li><p>使用以下命令创建一个新的WiFi热点配置文件。将YourSSID替换为你想要的热点名称，将YourPassword替换为你想要的热点密码。</p><blockquote><p>sudo nmcli connection add type wifi ifname ‘*’ con-name YourSSID autoconnect yes ssid YourSSID<br>  sudo nmcli connection modify YourSSID 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared<br>  sudo nmcli connection modify YourSSID wifi-sec.key-mgmt wpa-psk<br>  sudo nmcli connection modify YourSSID wifi-sec.psk YourPassword</p></blockquote></li><li><p>使用以下命令启用创建的热点</p><blockquote><p>sudo nmcli connection up YourSSID</p></blockquote></li><li>使用以下命令设置热点开机自启动<blockquote><p>sudo nmcli connection modify YourSSID connection.autoconnect yes</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+          <category> 服务器相关 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《编译，链接和重载》读书笔记</title>
+      <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E3%80%8A%E7%BC%96%E8%AF%91%EF%BC%8C%E9%93%BE%E6%8E%A5%E5%92%8C%E8%A3%85%E8%BD%BD%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E3%80%8A%E7%BC%96%E8%AF%91%EF%BC%8C%E9%93%BE%E6%8E%A5%E5%92%8C%E8%A3%85%E8%BD%BD%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+          <category> linux学习 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>机器人运动学-chp2</title>
       <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp2/"/>
       <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp2/</url>
       
@@ -25,7 +67,7 @@
     
     
     <entry>
-      <title>笔记-机器人运动学-chp3</title>
+      <title>机器人运动学-chp3</title>
       <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp3/"/>
       <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp3/</url>
       
@@ -46,7 +88,7 @@
     
     
     <entry>
-      <title>笔记-机器人运动学-chp4</title>
+      <title>机器人运动学-chp4</title>
       <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp4/"/>
       <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp4/</url>
       
@@ -67,7 +109,7 @@
     
     
     <entry>
-      <title>笔记-机器人运动学-chp1</title>
+      <title>机器人运动学-chp1</title>
       <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp1/"/>
       <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp1/</url>
       
@@ -88,7 +130,7 @@
     
     
     <entry>
-      <title>笔记-机器人运动学-chp0</title>
+      <title>机器人运动学-chp0</title>
       <link href="/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp0/"/>
       <url>/2024/05/03/%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6/%5B%E7%AC%94%E8%AE%B0%5D-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%BF%90%E5%8A%A8%E5%AD%A6-chp0/</url>
       
@@ -130,7 +172,7 @@
     
     
     <entry>
-      <title>笔记-强化学习-chp4</title>
+      <title>强化学习-chp4</title>
       <link href="/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp4/"/>
       <url>/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp4/</url>
       
@@ -151,7 +193,7 @@
     
     
     <entry>
-      <title>笔记-强化学习-chp3</title>
+      <title>强化学习-chp3</title>
       <link href="/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp3/"/>
       <url>/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp3/</url>
       
@@ -172,7 +214,7 @@
     
     
     <entry>
-      <title>笔记-强化学习-chp2</title>
+      <title>强化学习-chp2</title>
       <link href="/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp2/"/>
       <url>/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp2/</url>
       
@@ -193,7 +235,7 @@
     
     
     <entry>
-      <title>笔记-强化学习-chp1</title>
+      <title>强化学习-chp1</title>
       <link href="/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp1/"/>
       <url>/2024/05/02/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp1/</url>
       
@@ -214,7 +256,7 @@
     
     
     <entry>
-      <title>笔记-强化学习-chp0</title>
+      <title>强化学习-chp0</title>
       <link href="/2024/04/30/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp0/"/>
       <url>/2024/04/30/%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%5B%E7%AC%94%E8%AE%B0%5D%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-chp0/</url>
       
